@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "short_name": "Background Extension Base",
+  "name": "Background Extension Base",
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_title": "Open the popup"
+  },
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+  "icons": {
+    "16": "logo192.png",
+    "48": "logo192.png",
+    "128": "logo192.png"
+  },
+  "background": {
+    "scripts": ["app/background.js"]
+  },
+  "content_security_policy": "script-src 'self' 'sha256-GBwmUsK1klssHplaVyEsPSs1OXOR6CorDIApzOhjClI='; object-src 'self'", 
+  "permissions": [
+  ]
+}
