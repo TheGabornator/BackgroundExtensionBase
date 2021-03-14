@@ -10,6 +10,7 @@ const days = [
   "Friday",
   "Saturday",
 ];
+
 const months = [
   "January",
   "February",
@@ -25,13 +26,13 @@ const months = [
   "December",
 ];
 
-const now = new Date();
-
 export const DateSection = () => {
+  const now = new Date();
   const [date, setDate] = useState(now);
   const hour = date.getHours().toString().padStart(2, 0);
   const minute = date.getMinutes().toString().padStart(2, 0);
-  const day = days[date.getDay()];
+  const dayOfWeek = days[date.getDay()];
+  const day = now.getDate();
   const month = months[date.getMonth()];
 
   useEffect(() => {
@@ -41,7 +42,7 @@ export const DateSection = () => {
     const run = () => {
       timeout = setTimeout(() => {
         animationFrameId = requestAnimationFrame(run);
-        setDate(now);
+        setDate(new Date());
       }, 1000);
     };
     run();
@@ -56,7 +57,7 @@ export const DateSection = () => {
     <section className="DateSection">
       <Card>
         <span className="Clock">{`${hour}:${minute}`}</span>
-        <span className="Date">{`${day}, ${month} ${minute}`}</span>
+        <span className="Date">{`${dayOfWeek}, ${month} ${day}`}</span>
       </Card>
     </section>
   );
